@@ -1,23 +1,38 @@
-/* Calculate the power n^x. Optimize the code.*/
-
+/* Calculate the power x^y. Optimize the code.*/
 import java.util.Scanner;
 
-public class Main {
+/* Extended version of power function that can work
+for float x and negative y*/
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner s = new Scanner(System.in);
-		int x = s.nextInt();
-		int n = s.nextInt();
-		System.out.println(power(n, x));
-	}
+ class xistopowery{
+	static float power(float x, int y)
+{
+   float temp;
+   if( y == 0)
+      return 1;
+   temp = power(x, y/2);       
+   if (y%2 == 0)
+       return temp*temp;
+   else
+   {
+       if(y > 0)
+           return x*temp*temp;
+       else
+           return (temp*temp)/x;
+   }
+}  
 
-	public static long power(int n, int x) {
-		long result = 1;
-		for (; x != 0; x--) {
-			result = result * n;
-		}
-
-		return result;
-	}
+/* Program to test function power */
+public static void main(String args[])
+{	
+	float x;
+	int y;
+	Scanner s = new Scanner(System.in);
+	System.out.print("enter 1st no");
+	x=s.nextFloat();
+	System.out.print("enter 2nd no");
+   y= s.nextInt();
+   System.out.print(power(x, y));
+   
+}
 }
