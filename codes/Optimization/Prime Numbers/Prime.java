@@ -1,30 +1,45 @@
-/* Print prime Numbers from 1 to n, where n is a number input by the user. The time complexity here is O(2^n).
-   Optimize the code to lower the time complexity.
- */
 
-import java.util.*;
 
-public class Main {
+import java.util.Scanner;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-         Scanner s= new Scanner(System.in);
-         System.out.println("Enter n");
-         int n=s.nextInt();
-         int i=2;
-         int j=2;
-         int flag=0;
-         while(i<=n){
-        	 j=2; flag=0;
-        	 while(j<i){
-        		 if(i%j==0)
-        			 flag++;
-        		 j++;
-        	 }
-        if(flag==0)
-        	System.out.println(i+" ");
-         i++;
-         }
-	}
-
+class primeno_optimisation
+{
+    void prime(int n)
+    {
+   
+        boolean prime[] = new boolean[n+1];
+        for(int i=0;i<n;i++)
+            prime[i] = true;
+         
+        for(int p = 2; p*p <=n; p++)
+        {
+           
+            if(prime[p] == true)
+            {
+                // Update all multiples of p
+                for(int i = p*2; i <= n; i += p)
+                    prime[i] = false;
+            }
+        }
+         
+   
+        for(int i = 2; i <= n; i++)
+        {
+            if(prime[i] == true)
+                System.out.print(i + " ");
+        }
+    }
+     
+ 
+    public static void main(String args[])
+    {
+        int n;
+        System.out.println("enter the no");
+        Scanner s = new Scanner(System.in);
+        n= s.nextInt();
+        System.out.print("Following are the prime numbers ");
+        System.out.println("smaller than or equal to " + n);
+        primeno_optimisation g = new primeno_optimisation();
+        g.prime(n);
+    }
 }
