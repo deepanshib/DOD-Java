@@ -1,1 +1,36 @@
-FOLLOW ALL THE INSTRUCTIONS!!
+solution for Chef and Rainbow Array Problem Code: RAINBOWA
+import java.io.*;
+import java.util.*;
+ 
+class rainbowa {
+ 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in=new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+		int t=in.nextInt();
+		String[]ans=new String[t];
+		for(int i=0;i<t;i++){
+			int n=in.nextInt();
+			int []a=new int[n];
+			for(int j=0;j<n;j++)a[j]=in.nextInt();
+			boolean is=true;
+			int s=0,l=a.length-1;
+			while(s<=l){
+				if(a[s]!=a[l])
+					is=false;
+				s++;
+				l--;
+			}
+			if(a[n/2]!=7)
+				is=false;
+			if(is)
+				ans[i]="yes";
+			else
+				ans[i]="no";
+		}
+		
+		for(String an:ans)
+			System.out.println(an);
+	}
+ 
+} 
