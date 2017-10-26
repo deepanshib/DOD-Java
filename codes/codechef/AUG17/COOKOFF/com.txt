@@ -1,1 +1,53 @@
-FOLLOW ALL THE INSTRUCTIONS!!
+From heaven to earth Problem Code: ELEVSTRS
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+ 
+ class elevation {
+	public static void main(String args[]){
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		ArrayList<String> arr=new ArrayList<String>();
+		StringTokenizer st=null;
+		String temp=null;
+		int n=0;
+		int t=0;
+		int i=0;
+		int v1=0;
+		int v2=0;
+		double v1t=0;
+		double v2t=0;
+		 try {
+			t=Integer.parseInt(br.readLine());
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 for(i=0;i<t;i++){
+			 try {
+				temp=br.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 st=new StringTokenizer(temp);
+			 n=Integer.parseInt(st.nextToken());
+			 v1=Integer.parseInt(st.nextToken());
+			 v2=Integer.parseInt(st.nextToken());
+			 v1t=Math.sqrt(2)*n*v1;
+			 v2t=n*v2;
+			 if(v1t>v2t)
+				 arr.add("Stairs");
+			 else
+				 arr.add("Elevator");
+			 			 
+		 }
+		 for(i=0;i<t;i++)
+			 System.out.println(arr.get(i));
+	}
+ 
+}
