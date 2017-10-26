@@ -1,1 +1,29 @@
-FOLLOW ALL THE INSTRUCTIONS!!
+ Mathison and pangrams solution
+  
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+ 
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc=new Scanner(System.in);
+		int t=sc.nextInt();
+		while(t--!=0){
+		    int arr[]=new int[26];int i=-1;while(++i!=26)arr[i]=sc.nextInt();
+		    String s=sc.next();
+		    i=-1;int a[]=new int[26];
+		    while(++i!=s.length()){
+		        if(a[s.charAt(i)-97]==0)
+		        a[s.charAt(i)-97]++;
+		    }
+		    i=-1;long ans=0;
+		    while(++i!=26){
+		        if(a[i]==0)ans+=arr[i];
+		    }System.out.println(ans);
+		}// your code goes here
+	}
+}
+ 
